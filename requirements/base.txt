@@ -1,0 +1,14 @@
+argon2-cffi
+celery==5.1.2
+Django==3.2.7
+django-celery-beat==2.2.1
+django-cors-headers==3.9.0
+django-environ==0.7.0
+djangorestframework==3.12.4
+flower==1.0.0
+hiredis
+Pillow
+redis
+uvicorn==0.15.0
+uvloop==0.16.0
+websockets==10.0

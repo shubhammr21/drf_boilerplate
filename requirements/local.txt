@@ -1,0 +1,17 @@
+-r base.txt
+flake8
+flake8-isort
+coverage
+black
+pylint-django
+pylint-celery
+pre-commit
+django-debug-toolbar
+django-extensions
+django-coverage-plugin
+pytest-django
+ipython==7.28.0
+Sphinx==4.2.0
+sphinx-book-theme==0.1.5
+sphinx-copybutton==0.4.0
+sphinx-togglebutton==0.2.3
