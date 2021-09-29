@@ -10,16 +10,16 @@ import os
 from pathlib import Path
 import environ
 
-ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
+ROOT_DIRS = Path(__file__).resolve(strict=True).parent.parent.parent
 
-APPS_DIR = ROOT_DIR / 'drf_bolierplate'
+APPS_DIRS = ROOT_DIRS / 'drf_bolierplate'
 
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=True)
 if READ_DOT_ENV_FILE:
     # OS environment variables take precedence over variables from .env
-    env.read_env(str(ROOT_DIR / ".env"))
+    env.read_env(str(ROOT_DIRS / ".env"))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -77,7 +77,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APPS_DIRS': True,
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {"default": env.db(
-    "DATABASE_URL", default=f"sqlite:////{ROOT_DIR}/db.sqlite3")}
+    "DATABASE_URL", default=f"sqlite:////{ROOT_DIRS}/db.sqlite3")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # Password validation
@@ -150,7 +150,7 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
-LOCALE_PATHS = [str(ROOT_DIR / "locale")]
+LOCALE_PATHS = [str(ROOT_DIRS / "locale")]
 
 TIME_ZONE = 'UTC'
 
@@ -158,11 +158,11 @@ TIME_ZONE = 'UTC'
 # Static files (CSS, JavaScript, Images)
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = str(ROOT_DIR / "staticfiles")
+STATIC_ROOT = str(ROOT_DIRS / "staticfiles")
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = [str(APPS_DIR / "static")]
+STATICFILES_DIRS = [str(APPS_DIRS / "static")]
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -172,7 +172,7 @@ STATICFILES_FINDERS = [
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = str(APPS_DIR / "media")
+MEDIA_ROOT = str(APPS_DIRS / "media")
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
 
@@ -255,7 +255,7 @@ REST_FRAMEWORK = {
 }
 
 
-CONFIG_DIR = ROOT_DIR / 'jwt_keys'
+CONFIG_DIR = ROOT_DIRS / 'jwt_keys'
 JWT_PRIVATE_KEY_PATH = CONFIG_DIR / 'jwt_key'
 JWT_PUBLIC_KEY_PATH = CONFIG_DIR / 'jwt_key.pub'
 
