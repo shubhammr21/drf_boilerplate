@@ -12,3 +12,6 @@ redis
 uvicorn==0.15.0
 uvloop==0.16.0
 websockets==10.0
+cryptography
+coreapi
+djangorestframework-simplejwt
