@@ -1,0 +1,20 @@
+# General
+# ------------------------------------------------------------------------------
+# USE_DOCKER=yes
+# IPYTHONDIR=/app/.ipython
+DJANGO_READ_DOT_ENV_FILE=True
+DJANGO_DEBUG=True
+DJANGO_SECRET_KEY="django-insecure-wlp5!gxp2dm$n%n=7@52m#-r8#t4##bi*)6yyoykhd7=am6qh9"
+# Redis
+# ------------------------------------------------------------------------------
+CELERY_BROKER_URL=redis://redis:6379/0
+
+
+# Celery
+# ------------------------------------------------------------------------------
+
+DATABASE_URL=sqlite:///db.sqlite3
+
+# Flower
+CELERY_FLOWER_USER=debug
+CELERY_FLOWER_PASSWORD=debug
